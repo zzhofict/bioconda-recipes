@@ -5,9 +5,15 @@ export LIBRARY_PATH="${PREFIX}/lib"
 export CPATH="${PREFIX}/include"
 export CPPFLAGS="${CPPFLAGS} -I${PREFIX}/include"
 export LDFLAGS="${LDFLAGS} -L${PREFIX}/lib"
+<<<<<<< HEAD
 export CXXFLAGS="${CXXFLAGS} -O2"
 
 mkdir -p $PREFIX/bin
+=======
+export CXXFLAGS="${CXXFLAGS} -O3"
+
+mkdir -p "$PREFIX/bin"
+>>>>>>> e42ef341306b35eb803fa11dd39408f777a16a23
 
 cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${PREFIX}" -DCMAKE_BUILD_TYPE=Release \
 	-DEXTRA_FLAGS="${EXTRA_FLAGS}" -DCMAKE_CXX_COMPILER="${CXX}" \
@@ -16,6 +22,7 @@ cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${PREFIX}" -DCMAKE_BUILD_TYPE=Releas
 	"${CONFIG_ARGS}"
 cmake --build build --clean-first --target install -j "${CPU_COUNT}"
 
+<<<<<<< HEAD
 # Libraries aren't getting installed
 #mkdir -p $PREFIX/lib
 
@@ -26,3 +33,6 @@ cmake --build build --clean-first --target install -j "${CPU_COUNT}"
 
 install -v -m 0755 build/bin/* $PREFIX/bin
 #cp -f scripts/split_approx_mappings_in_chunks.py $PREFIX/bin
+=======
+install -v -m 0755 build/bin/* "$PREFIX/bin"
+>>>>>>> e42ef341306b35eb803fa11dd39408f777a16a23

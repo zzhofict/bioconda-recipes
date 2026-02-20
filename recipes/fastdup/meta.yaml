@@ -9,18 +9,29 @@ source:
   - url: https://github.com/zzhofict/FastDup/archive/refs/tags/v{{ version }}.tar.gz
     sha256: d7a52ed8839a50f56be79cd690482c46053c351a4923c4b022043613e5b0f99a
 
+<<<<<<< HEAD
 
 build:
   number: 0
     #skip: True
   run_exports:
     - {{ pin_subpackage("fastdup", max_pin="x.x") }}
+=======
+build:
+  number: 0
+  run_exports:
+    - {{ pin_subpackage('fastdup', max_pin="x") }}
+>>>>>>> e42ef341306b35eb803fa11dd39408f777a16a23
 
 requirements:
   build:
     - make
     - cmake
     - {{ compiler('cxx') }}
+<<<<<<< HEAD
+=======
+    - pkg-config
+>>>>>>> e42ef341306b35eb803fa11dd39408f777a16a23
   host:
     - htslib
     - ncurses
@@ -33,12 +44,26 @@ test:
     - fastdup --version
 
 about:
+<<<<<<< HEAD
   home: https://github.com/zzhofict/FastDup
   license: MIT
   license_file: LICENSE
   summary: A Scalable Duplicate Marking Tool using Speculation-and-Test Mechanism
 
 extra:
+=======
+  home: "https://github.com/zzhofict/FastDup"
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: "A Scalable Duplicate Marking Tool using Speculation-and-Test Mechanism."
+  dev_url: "https://github.com/zzhofict/FastDup"
+
+extra:
+  additional-platforms:
+    - linux-aarch64
+    - osx-arm64
+>>>>>>> e42ef341306b35eb803fa11dd39408f777a16a23
   identifiers:
     - biotools:fastdup
     - usegalaxy-eu:fastdup
